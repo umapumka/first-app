@@ -1,38 +1,20 @@
-// Wait for the DOM content to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-   
-    let form = document.getElementById('conversionForm');
+function convertTemperature() {
 
-   
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
 
-        let celsius = parseFloat(document.getElementById('celsiusInput').value);
-        let  convertTo = document.getElementById('convertTo').value;
+    const celsiusInput = document.getElementById('celsiusInput').value;
+    const ConvertForm = document.getElementById('ConvertForm').value;
+    const convertTo = document.getElementById('convertTo').value;
 
-        
-        let  result;
+    
+    let result;
 
-        if (convertTo === 'fahrenheit') {
-            result = celsiusToFahrenheit(celsius);
-        }
-        
-        displayResult(result);
-    });
-
-    function celsiusToFahrenheit(celsius) {
-        return celsius * 9/5 + 32;
+    if (ConvertForm === convertTo) {
+        result = celsiusInput;
+    } else if (ConvertForm === 'C' && convertTo === 'F') {
+        result = (celsiusInput * 9/5) + 32;
+    } else if (ConvertForm === 'F' && convertTo === 'C') {
+        result = (celsiusInput - 32) * 5/9;
     }
 
-   
-    function displayResult(result) {
-        let showResultDiv = document.getElementsByClassName("convertSides");
-        showResultDiv.innerHTML = ''; 
-
-
-
-        let resultElement = document.createElement('p');
-        resultElement.textContent = result.toFixed(2) + ' degrees Fahrenheit';
-        showResultDiv.appendChild(resultElement);
-    }
-});
+    document.getElementById('showResult').innerText = `${parseFloat(result).toFixed(2)}°${convertTo}`;
+}
