@@ -75,42 +75,74 @@ getUser("Sponge Bab").then((result) =>{
 })*/
 
 //books js
+// Importing books data (assuming this is your 'books.js' file content)
+/*import { books } from "./books.js";
 
-import { books } from "./books.js";
+// Function to render books based on selected genre
+function renderBooks(genre, filteredBooks) {
+    const booksContainer = document.getElementById("allBooks");
+    booksContainer.innerHTML = ''; // Clear previous content
 
-const booksContainer = document.getElementById("allBooks")
+    filteredBooks.forEach((book) => {
+        if (genre === 'All-genres' || book.genre === genre) {
+            const bookDiv = document.createElement("div");
+            bookDiv.classList.add("bookCard");
 
-books.forEach(book => {
-    const bookDiv = document.createElement("div")
-    bookDiv.classList.add("bookCard");
+            const img = document.createElement("img");
+            img.src = book.cover;
+            img.alt = book.title;
+            bookDiv.appendChild(img);
 
-    const img = document.createElement("img")
-    img.src = book.cover;
-    img.alt = book.title;
+            const detailsDiv = document.createElement("div");
+            detailsDiv.classList.add("detailsDiv");
 
-    bookDiv.appendChild(img);
+            const title = document.createElement("h4");
+            title.classList.add("book-title");
+            title.textContent = book.title;
+            detailsDiv.appendChild(title);
 
-    const detailsDiv =document.createElement("div");
-    detailsDiv.classList.add("detailsDiv");
+            const authorName = document.createElement("p");
+            authorName.classList.add("author");
+            authorName.textContent = book.author;
+            detailsDiv.appendChild(authorName);
 
-    const title = document.createElement("h4");
-    title.classList.add("book-title");
-    title.textContent = book.title;
-    detailsDiv.appendChild(title);
+            bookDiv.appendChild(detailsDiv);
+            booksContainer.appendChild(bookDiv);
+        }
+    });
+}
 
-    const authorName = document.createElement("p");
-    authorName.classList.add("author");
-    authorName.textContent = book.author;
-    detailsDiv.appendChild(authorName)
+// Initial render of all books
+renderBooks("All-genres", books);
 
-    bookDiv.append(detailsDiv)
-    booksContainer.append(bookDiv)
-
-   
+// Event listener for genre select dropdown
+const genreSelect = document.getElementById('genres');
+genreSelect.addEventListener('change', function() {
+    const selectedGenre = genreSelect.value;
+    const filteredBooks = books.filter((book) => {
+        return selectedGenre === 'All-genres' || book.genre === selectedGenre;
+    });
+    renderBooks(selectedGenre, filteredBooks);
 });
 
 
+function filterBooks(genre, query) {
+    return books.filter((book) => {
+        const titleMatches = book.title.toLowerCase().includes(query.toLowerCase());
+        const authorMatches = book.author.toLowerCase().includes(query.toLowerCase());
+        const genreMatches = genre === 'All-genres' || book.genre === genre;
+
+        return (titleMatches || authorMatches) && genreMatches;
+    });
+}
+
+// Event listener for search input
+const searchInput = document.getElementById('search-input');
+searchInput.addEventListener('input', function() {
+    const selectedGenre = genreSelect.value;
+    const filteredBooks = filterBooks(selectedGenre, searchInput.value.trim());
+    renderBooks(selectedGenre, filteredBooks);
+});*/
 
 
-
-
+//
