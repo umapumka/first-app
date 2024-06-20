@@ -7,6 +7,10 @@
     <title>Github</title>
 </head>
 <body>
+
+
+    <!------
+    "convert" html
     <div id="mainContainer">
 
     <div id="convertionForm">
@@ -35,10 +39,65 @@
     <div type="submit" class="convertSides" id="showResult">
 
     </div>
+    </div>---->
+
+    <!--books html-->
+
+    <main class="main-container" id="main-cont">
+
+        <nav>
+            <div><h3>All books</h3></div>
+            <div class="discover-container">
+                <h3 class="navName">Discover</h3>
+                <span><a href="#"><i class="fa-solid fa-house"></i> Home</a></span>
+                <span><a href="#"><i class="fa-solid fa-magnifying-glass"></i> Browse</a></span>
+                <span><a href="#"><i class="fa-solid fa-podcast"></i> Radio</a></span>
+            </div>
+            <br>
+            <div class="library-container">
+                <h3 class="navName">Library</h3>
+                <span><a href="#"><i class="fa-solid fa-list"></i> Book list</a></span>
+                <span><a href="#"><i class="fa-solid fa-music"></i> Audio books</a></span>
+                <span><a href="#"><i class="fa-regular fa-face-smile"></i> Personalized picks</a></span>
+            </div>
+        </nav>
+
+        <div class="cont0fTwo">
+        <div class="search-container">
+
+            <input id="search-input" type="text" placeholder="Placeholder">
+            <button>Search</button>
+
+            <select id="genres">
+                <option value="All-genres">All genres</option>
+                <option value="Dystopian">Dystopian</option>
+                <option value="Science Fiction">Science Fiction</option>
+                <option value="Satire">Satire</option>
+                <option value="Classic">Classic</option>
+                <option value="Gothic">Gothic</option>
+                <option value="Romance">Romance</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Comedy">Fiction</option>
+            </select>
+        </div>
+
+        <div class="books-container">
+            <h1>Books</h1>
+            <h5>All books</h5>
+
+            <div id="allBooks">
+            </div>
+
+        </div>
     </div>
+        
+
+    </main>
 
 
-    <script type="modole" src="main.js"></script>
+
+    <script type="module" src="main.js"></script>
+    <script src="https://kit.fontawesome.com/d07a43ed0e.js" crossorigin="anonymous"></script>
     
 </body>
 </html>
