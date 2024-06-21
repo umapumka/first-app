@@ -145,4 +145,39 @@ searchInput.addEventListener('input', function() {
 });*/
 
 
-//
+//fetch 
+
+fetch("https://randomuser.me/api/?results=10")
+.then((response) => response.json())
+.then((result) => {
+    console.log(result)
+    portfolioCard(result.results)
+})
+.catch((error) => console.log(error))
+
+
+function portfolioCard(users) {
+   const userCardContainer =document.getElementById("userCardContainer");
+
+    users.forEach(user => {
+        const userCard = document.createElement("div");
+        userCard.classList.add("userCard");
+        userCard.innerHTML = `
+        <div id="pic">
+        <img src = ${user.picture.large} alt=${user.name.first}/>
+        </div>
+
+        <div class="details">
+        <h1>${user.name.first} ${user.name.last}</h1>
+        <p><strong>Email:</strong>${user.email}</p>
+            <p><strong>Location:</strong>Chicago, USA</p>
+            <p><strong>Occupation:</strong>${user.occupation}</p>
+            <p><strong>About Me:</strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, optio.</p>
+        </div>
+        `;
+        userCardContainer.appendChild(userCard)
+
+    });
+    
+}
+
